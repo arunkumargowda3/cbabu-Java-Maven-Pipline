@@ -1,2 +1,2 @@
 [dev]
-172.31.33.174 ansible_user=ubuntu
+65.2.189.174 ansible_ssh_pass=12345 ansible_user=ubuntu
