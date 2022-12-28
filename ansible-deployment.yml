@@ -2,6 +2,11 @@
 - hosts: all
   become: True
   tasks:
+    - name: Install AWS CLI
+      apt:
+      name: awscli
+      state: present
+
     - name: Establish a login to ECR
       shell: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 029941012296.dkr.ecr.ap-south-1.amazonaws.com
     - name: Pull the image from ECR to CD server
