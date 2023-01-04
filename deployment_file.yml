@@ -1,0 +1,24 @@
+---
+- hosts: deploy_server
+  user: ubuntu
+  become: yes
+  tasks:
+  - name: install docker
+    apt: 
+      pkg: docker.io
+      state: present
+
+  - name: start docker service
+    service:
+      name: docker
+      state: started
+      enabled: true
+   
+  - name: docker login to hub
+    command: docker login -u arunkumarkn -p A960610j@
+
+  - name: pull the image
+    command: docker pull arunkumarkn/addressbook:latest
+
+  - name: deploy addressbook application
+    command: docker run -itd -p 8080:8080 arunkumarkn/addressbook:latest
