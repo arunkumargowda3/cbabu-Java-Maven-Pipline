@@ -1,2 +1,2 @@
-[dev]
-65.2.189.174 ansible_ssh_pass=12345 ansible_user=ubuntu
+[deploy_server]
+13.127.113.233 ansible_user=ubuntu
